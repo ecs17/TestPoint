@@ -1,0 +1,63 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 22/09/2014, 10:07:13 AM
+    Author     : EMP.EMMANUEL.CASTRO
+*/
+
+#mainHeader, #headerVenta {
+    clear: both;
+    float: top;
+    display: block;
+    width: auto;
+    height: auto;
+    margin: 0px auto;
+    padding: 0px;
+    text-align: center;
+    border: 1px solid #999999;
+    background: #2844CC;
+    opacity: 0.9;
+}
+
+#mainLeftAside {
+    float: left;
+    width: 150px;
+    margin: 0px auto;
+    padding: 0px auto;
+    border: 3px solid #2844CC;
+}
+
+#sectionMain {
+    float: right;
+    display: block;
+    border: 1px solid #999999;
+    padding: 0px auto;
+    margin: 1px auto;
+    width: auto;
+}
+
+.ui-menu {
+    clear: both;
+    width: auto;
+    height: auto;
+}
+
+.ui-layout {
+    border: 1px solid #7aba7b;
+}
+
+.ui-grid-col-12 {
+    background: #dbc59e;
+}
+
+.sub-header-h2 {
+    clear: both;
+    width: 100%;
+    background: #7aba7b;
+    border-radius: 20px / 10px;
+    box-shadow: #0636A7 10px 5px 10px;
+    text-align: center;
+}

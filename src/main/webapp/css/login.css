@@ -1,0 +1,57 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18/09/2014, 02:53:08 PM
+    Author     : EMP.EMMANUEL.CASTRO
+*/
+/*html {
+    background: url(../img/portfolio-3.jpg) no-repeat center fixed;
+    -webkit-background-size: cover;
+}*/
+
+body {
+    background: #eee !important;	
+}
+
+.wrapper {	
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.form-signin {
+  clear: both;
+  max-width: 380px;
+  padding: 15px 35px 45px;
+  margin: 50px auto;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,0.4);  
+
+    .form-signin-heading, .checkbox {
+        margin-bottom: 30px;
+    }
+
+    .checkbox {
+        font-weight: normal;
+    }
+
+    input[type="text"] {
+        margin-bottom: -1px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    input[type="password"] {
+        margin-bottom: 20px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+}
+
+.form-control {
+/*    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;*/
+    background-color: #DD00FF;
+}

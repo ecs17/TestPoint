@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <f:view contentType="text/html">
+        <h:head>
+            <title>CasantStore</title>
+            <link href="css/main.css" rel="stylesheet" />
+            <link href="css/bootstrap.css" rel="stylesheet" />
+            <link href="css/bootstrap.min.css" rel="stylesheet"/>
+            <link href="css/bootstrap-responsive.css" rel="stylesheet"/>
+            <link href="css/bootstrap-responsive.min.css" rel="stylesheet" />
+            <link href="css/primefaces.css.xhtml?ln=primefaces&amp;v=5.1.RC1" rel="stylesheet"/>
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+            <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+            <script src="js/main.js"></script>
+        </h:head>
+        <h:body>
+            <div class="ui-grid ui-grid-responsive">
+            <!-- <p:layout fullPage="true"> -->
+                <div class="ui-grid-row">
+                <!-- <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true" styleClass="ui-layout">-->
+                    <div class="ui-grid-col-12"><h2>Casant Store</h2></div>
+                <!--</p:layoutUnit>-->
+                </div>
+                <div class="ui-grid-row">
+                <!--<p:layoutUnit position="west" size="200" closable="true" resizable="false">-->
+                    <div class="ui-grid-col-2">
+                        <h:form id="menuForm">
+                            <p:growl id="messages" showDetail="false" life="2000" showSummary="Estas en Ventas"/>
+                            <p:menu class="ui-menu" toggleable="true">
+                                <p:submenu label="Productos" >
+                                    <p:menuitem value="Altas" action="#{menuForm.altaProducto}" icon="ui-icon-disk" update=":pnlContent" ajax="true"/>
+                                    <p:menuitem value="Bajas" actionListener="#{menuForm.bajaProducto}" update=":pnlContent" icon="ui-icon-arrowrefresh-1-w" ajax="true"/>
+                                </p:submenu>
+                                <p:submenu label="Clientes">
+                                    <p:menuitem value="Altas" actionListener="#{menuForm.altaCliente}" update="messages" icon="ui-icon-disk"/>
+                                    <p:menuitem value="Bajas" actionListener="#{menuForm.bajaCliente}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+                                </p:submenu>
+                                <p:submenu label="Ventas">
+                                    <p:menuitem id="mVenta" value="Venta" update="messages" icon="ui-icon-disk" target="blankPopUp" action="#{menuForm.ventas()}" 
+                                                onclick="window.open('','blankPopUp','status=no,toolbar=no,location=no,menubar=no,resizable,width=1008,height=690,scrollbars,left=100,top=50');" ajax="false"/>
+                                    <p:menuitem value="Revisar Venta" update="messages" icon="ui-icon-arrowrefresh-1-w" />
+                                </p:submenu>
+                            </p:menu>
+                        </h:form>
+                    </div>
+                <!--</p:layoutUnit>-->
+                <!--<p:layoutUnit id="contentMainLyout" position="center" style="height:auto">-->
+                    <div class="ui-grid-col-10">
+                        <!--<h:form id="formContent" class="form-horizontal" style="clear:both;height:auto;width:auto">-->
+                            <p:panel id="pnlContent" style="clear:both;height:auto;width:auto">
+                                <ui:include src="#{menuForm.view}" />
+                            </p:panel>
+                        <!--</h:form>-->
+                    </div>
+                <!--</p:layoutUnit>-->
+                </div>
+            <!-- </p:layout>-->
+            </div>
+        </h:body>
+    </f:view>
+</html>

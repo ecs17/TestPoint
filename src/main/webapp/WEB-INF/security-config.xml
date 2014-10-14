@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:sec="http://www.springframework.org/schema/security"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/security
+    http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+    <sec:http auto-config="true" use-expressions="true">
+        <sec:intercept-url pattern="/pages/**" access="hasRole('ROLE_USER')"/>
+        <sec:intercept-url pattern="/pages/**" access="permitAll"/>
+        <sec:intercept-url pattern="/javax.faces.resource/**" access="permitAll"/>
+        <sec:intercept-url pattern="/**" access="permitAll"/>
+        <sec:form-login login-page="/pages/common/login.jsf"/>
+        <sec:logout invalidate-session="true"
+                    delete-cookies="JSESSIONID,SPRING_SECURITY_REMEMBER_ME_COOKIE"
+                    logout-success-url="/pages/login.jsf"></sec:logout>
+    </sec:http>
+    <sec:authentication-manager alias="authenticationManager">
+        <sec:authentication-provider>
+            <sec:user-service>
+                <sec:user authorities="ROLE_USER" name="admin" password="admin" />
+            </sec:user-service>
+        </sec:authentication-provider>
+    </sec:authentication-manager>
+    <!--<sec:authentication-manager alias="authenticationManager">
+        <sec:authentication-provider ref="ldapAuthProvider"></sec:authentication-provider>
+    </sec:authentication-manager>
+    <bean id="ldapContextSource" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
+        <constructor-arg value="ldap://localhost:12389/o=mycompany" />
+        <property name="userDn" value="uid=admin,ou=system"/>
+        <property name="password" value="secret"/>
+    </bean>
+    <bean id="ldapAuthProvider" class="org.springframework.security.ldap.authentication.LdapAuthenticationProvider">
+        <constructor-arg>
+            <bean class="org.springframework.security.ldap.authentication.BindAuthenticator">
+                <constructor-arg ref="ldapContextSource"/>
+                <property name="userDnPatterns">
+                    <list>
+                        <value>uid={0},ou=Users</value>
+                    </list>
+                </property>
+            </bean>
+        </constructor-arg>
+        <constructor-arg>
+            <bean class="org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopulator">
+                <constructor-arg ref="ldapContextSource"/>
+                <constructor-arg value="ou=Groups"/>
+                <property name="groupRoleAttribute" value="cn"/>
+            </bean>
+        </constructor-arg>
+    </bean>
+    <sec:global-method-security pre-post-annotations="enabled"/>-->
+</beans>

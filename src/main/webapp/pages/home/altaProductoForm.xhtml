@@ -1,0 +1,76 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://primefaces.org/ui ">
+    <link href="css/main.css" rel="stylesheet"/>
+    <link href="css/bootstrap.css" rel="stylesheet"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet"/>
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet"/>
+    <link href="css/primefaces.css.xhtml?ln=primefaces&amp;v=5.1.RC1" rel="stylesheet"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <!--<h:form id="formAltaProd">-->
+    <h2 class="sub-header-h2">Alta de Productos</h2>
+    <p:separator style="width:auto;height:10px; background-color:#006dcc;"/>
+
+    <div class="ui-grid ui-grid-responsive">
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-8">
+                <h:form id="searchForm">
+                    <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true"/>
+                    <p:growl id="growl" sticky="true" showDetail="true" life="1000"/>
+                    <p:panelGrid id="pnlAltaProdSearch" columns="2" class="ui-panelgrid-header">
+                        <p:inputText id="txtCodigo" placeholder="Introduce Codigo Producto" class="input-block-level"
+                                     value="#{productoForm.claveCodigo}"
+                                     required="true"
+                                     requiredMessage="Capture la Clave o Codigo de Barras del Producto"/>
+                        <p:commandButton id="btnBuscar" value="Buscar" action="#{productoForm.finedProducto}"
+                                         update="pnlAltaProdSearch"/>
+                        <f:facet name="header"><p>Detalle del Producto</p></f:facet>
+                        <h:outputText value="Codigo de Barras"/>
+                        <h:outputText value="#{productoForm.producto.codigoBarras}"/>
+                        <h:outputText value="Codigo de Producto"/>
+                        <h:outputText value="#{productoForm.producto.codigo}"/>
+                        <h:outputText value="Nombre"/>
+                        <h:outputText value="#{productoForm.producto.nombre}"/>
+                        <h:outputText value="Descripcion"/>
+                        <h:outputText value="#{productoForm.producto.descripcion}"/>
+                        <h:outputText value="Existencia"/>
+                        <h:outputText value="#{productoForm.producto.existencia}"/>
+                        <h:outputText value="Precio"/>
+                        <h:outputText value="#{productoForm.producto.precio}"/>
+                        <h:outputText value="Estado"/>
+                        <h:outputText value="#{productoForm.producto.estado}"/>
+                        <h:outputText value="IVA"/>
+                        <h:outputText value="#{productoForm.producto.iva}"/>
+                    </p:panelGrid>
+                </h:form>
+                <h:form id="formAdd">
+                    <p:commandButton id="btnAgregar" value="Agregar Productos" onclick="PF('dlg').show()"/>
+                    <p:dialog header="Agregar Productos" widgetVar="dlg" focus="txtCantidad">
+                        <h:panelGrid columns="1" cellpadding="5">
+                            <p:inputText id="txtCantidad" value="#{productoForm.cantidadToAdd}"
+                                         placeholder="Captura la cantidad" required="true"
+                                         requiredMessage="Captura La Cantidad"/>
+                            <p:commandButton id="btnAgregarDialog" value="Agregar"
+                                             actionListener="#{productoForm.addProducto()}"
+                                             update="pnlAltaProdSearch,growl"/>
+                        </h:panelGrid>
+                    </p:dialog>
+                </h:form>
+            </div>
+            <div class="ui-grid-col-4">
+                <p>Nuevo Producto</p>
+                <!--<h:form id="addProductoForm">
+                    <p:panelGrid id="pnlAltaProd" columns="2" class="ui-panelgrid-header">
+                        <p>Nuevo Producto</p>
+                    </p:panelGrid>
+                </h:form>-->
+            </div>
+        </div>
+    </div>
+    <!--</h:form>-->
+</ui:composition>

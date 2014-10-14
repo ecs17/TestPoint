@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Casant Venta</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <link href="css/main.css" />
+        <link href="css/venta.css" />
+        <script src="js/venta.js" />
+    </h:head>
+    <h:body>
+        <h:form id="fromMain">
+            <header id="headerVenta" >
+                <h2>Casant Punto de Venta</h2>
+                <h:panelGrid id="mainGrid" columns="3">
+                    <p:outputLabel id="lbCodigo" value="Codigo"/>
+                    <p:inputText id="txtCodigo" required="true" value="#{ventaForm.codigo}" placeholder="Codigo de Producto"/>
+                    <p:commandButton id="btnAgregar" value="Agregar Producto" action="#{ventaForm.addProdCompra()}" ajax="true" update="datatable" rendererType="tableVenta"/>
+                </h:panelGrid>
+            </header>
+            <section id="sectionVenta">
+                <p:dataTable id="datatable" var="producto" value="#{ventaForm.listaProducto}">
+                    <p:column headerText="Codigo" styleClass="values1">
+                        <h:outputText value="#{producto.codigo}"/>
+                    </p:column>
+                    <p:column headerText="Nobre o Descripcion">
+                        <h:outputText value="#{producto.descripcion}"/>
+                    </p:column>
+                    <p:column headerText="Cantidad" >
+                        <h:outputText value="#{producto.cantidad}"/>
+                    </p:column>
+                </p:dataTable>
+            </section>
+        </h:form>
+    </h:body>
+</html>

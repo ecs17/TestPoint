@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Casant Punto de Venta</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="css/login.css" rel="stylesheet" />
+    </h:head>
+    <h:body>
+        <div id="wrapperDiv" class="wrapper">
+            <h:form id="loginForm" class="form-signin">       
+                <h2 class="form-signin-heading">Login Casant</h2>
+                <h:panelGrid id="dataGrid" columns="1" cellpadding="5">
+                    <p:inputText type="text" id="username" placeholder="Usuario" required="true" value="#{loginForm.userName}" requiredMessage="Por Favor introduce el Usuario"/>
+                    <p:message for="username"/>
+                    <p:inputText type="password" id="password" placeholder="Contraseña" required="true" value="#{loginForm.password}" requiredMessage="Por Favor introduce la Contraseña"/>      
+                    <p:message for="password"/>
+                    <p:commandButton class="btn btn-lg btn-primary btn-block" action="#{loginForm.login()}" value="Login" update="dataGrid"></p:commandButton>
+                </h:panelGrid>
+            </h:form>
+        </div>
+    </h:body>
+</html>

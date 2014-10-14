@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    <application>
+        <el-resolver>
+            org.springframework.web.jsf.el.SpringBeanFacesELResolver
+        </el-resolver>
+    </application>
+    <navigation-rule>
+        <from-view-id>pages/login/login.xhtml</from-view-id> 
+        <navigation-case>
+            <from-outcome>mainForm</from-outcome>
+            <to-view-id>pages/home/mainForm.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>pages/home/mainForm.xhtml</from-view-id> 
+        <navigation-case>
+            <from-outcome>ventaForm</from-outcome>
+            <to-view-id>pages/home/ventaForm.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>pages/login/login.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>unsecured</from-outcome>
+            <to-view-id>pages/unsecure/unsecured.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>pages/home/mainForm.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>altaProductoForm</from-outcome>
+            <to-view-id>pages/home/altaProductoForm.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>pages/home/mainForm.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>bajaProductoForm</from-outcome>
+            <to-view-id>pages/home/bajaProductoForm.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>

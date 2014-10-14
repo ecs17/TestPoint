@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="pages/home/altaProductoForm.xhtml" x="582" y="140" zoom="true"/>
+        <Node id="pages/home/ventaForm.xhtml" x="417" y="76" zoom="true"/>
+        <Node id="pages/home/mainForm.xhtml" x="403" y="386" zoom="true"/>
+        <Node id="pages/unsecure/unsecured.xhtml" x="34" y="428" zoom="true"/>
+        <Node id="pages/login/login.xhtml" x="64" y="289" zoom="true"/>
+        <Node id="pages/home/bajaProductoForm.xhtml" x="66" y="84" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>
