@@ -21,7 +21,6 @@
             <div class="ui-grid-col-8">
                 <h:form id="searchForm">
                     <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true"/>
-                    <p:growl id="growl" sticky="true" showDetail="true" life="1000"/>
                     <p:panelGrid id="pnlAltaProdSearch" columns="2" class="ui-panelgrid-header">
                         <p:inputText id="txtCodigo" placeholder="Introduce Codigo Producto" class="input-block-level"
                                      value="#{productoForm.claveCodigo}"
@@ -49,6 +48,7 @@
                     </p:panelGrid>
                 </h:form>
                 <h:form id="formAdd">
+                    <p:growl id="growl" sticky="true" showDetail="true" life="1000"/>
                     <p:commandButton id="btnAgregar" value="Agregar Productos" onclick="PF('dlg').show()"/>
                     <p:dialog header="Agregar Productos" widgetVar="dlg" focus="txtCantidad">
                         <h:panelGrid columns="1" cellpadding="5">
@@ -57,7 +57,7 @@
                                          requiredMessage="Captura La Cantidad"/>
                             <p:commandButton id="btnAgregarDialog" value="Agregar"
                                              actionListener="#{productoForm.addProducto()}"
-                                             update="pnlAltaProdSearch,growl"/>
+                                             update=":searchForm:pnlAltaProdSearch,growl"/>
                         </h:panelGrid>
                     </p:dialog>
                 </h:form>
